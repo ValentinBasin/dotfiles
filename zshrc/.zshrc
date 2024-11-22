@@ -52,6 +52,6 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # Aliases
 alias vim='/run/current-system/sw/bin/nvim'
-
+alias gc='git commit -m'
 # Named Directory Hashes
 
