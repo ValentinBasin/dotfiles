@@ -10,7 +10,7 @@
     pkgs.alacritty
     pkgs.ast-grep
     pkgs.cargo
-    pkgs.espanso
+    # pkgs.espanso
     pkgs.fd
     pkgs.fish
     pkgs.fzf
@@ -35,6 +35,7 @@
     pkgs.tmux
     pkgs.vscode
     pkgs.wget
+    pkgs.yazi
     pkgs.yq-go
   ];
 
@@ -46,6 +47,8 @@
       "firefox"
       "devtoys"
       "docker"
+      "espanso"
+      "ghostty"
       "hiddenbar"
       "libreoffice"
       "maccy"
@@ -64,6 +67,7 @@
       "zsh-autosuggestions"
     ];
     masApps = {
+      "hp_smart" = 1474276998;
       "ms_office" = 1450038993;
     };
     onActivation.cleanup = "zap";
