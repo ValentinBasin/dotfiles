@@ -10,11 +10,12 @@
     pkgs.alacritty
     pkgs.ast-grep
     pkgs.cargo
-    # pkgs.espanso
     pkgs.fd
     pkgs.fish
     pkgs.fzf
     pkgs.git
+    pkgs.go
+    pkgs.hugo
     pkgs.kubernetes-helm
     pkgs.keepassxc
     pkgs.lazygit
