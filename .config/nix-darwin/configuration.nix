@@ -10,6 +10,7 @@
     pkgs.alacritty
     pkgs.ast-grep
     pkgs.cargo
+    pkgs.eksctl
     pkgs.fd
     pkgs.fish
     pkgs.fzf
@@ -22,6 +23,7 @@
     pkgs.lazydocker
     pkgs.lua
     pkgs.lua52Packages.luarocks
+    pkgs.minikube
     pkgs.neovim
     pkgs.nodejs_22
     pkgs.obsidian
@@ -33,11 +35,13 @@
     pkgs.ripgrep
     pkgs.starship
     pkgs.stow
+    pkgs.terraform
     pkgs.tmux
     pkgs.vscode
     pkgs.wget
     pkgs.yazi
     pkgs.yq-go
+    pkgs.zsh-autosuggestions
   ];
 
   homebrew = {
@@ -62,10 +66,6 @@
       "transmission"
       "vlc"
       "whatsapp"
-    ];
-    brews = [
-      "minikube"
-      "zsh-autosuggestions"
     ];
     masApps = {
       "hp_smart" = 1474276998;
