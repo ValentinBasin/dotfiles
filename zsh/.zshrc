@@ -59,3 +59,7 @@ alias ka="kubectl apply -f"
 
 # Named Directory Hashes
 
+# AWS 
+export AWS_CLI_AUTO_PROMPT=on
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
