@@ -8,6 +8,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = [
     pkgs.alacritty
+    pkgs.ansible
     pkgs.ast-grep
     pkgs.cargo
     pkgs.eksctl
@@ -15,6 +16,7 @@
     pkgs.fish
     pkgs.fzf
     pkgs.git
+    pkgs.gnupg
     pkgs.go
     pkgs.hugo
     pkgs.kubernetes-helm
@@ -47,10 +49,12 @@
   homebrew = {
     enable = true;
     casks = [
+      "anki"
       "bitwarden"
       "cheatsheet"
       "firefox"
       "devtoys"
+      "discord"
       "docker"
       "espanso"
       "ghostty"
@@ -82,11 +86,11 @@
   ];
 
   # home-manager.backupFileExtension = "backup";
-  nix.configureBuildUsers = true;
-  nix.useDaemon = true;
+  # nix.configureBuildUsers = true;
+  # nix.useDaemon = true;
 
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
+  # services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
@@ -122,7 +126,7 @@
     screensaver.askForPasswordDelay = 10;
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  # security.pam.enableSudoTouchIdAuth = true;
 
   users.users.basin = {
     name = "basin";
