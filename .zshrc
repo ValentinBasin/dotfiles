@@ -57,5 +57,5 @@ alias gc='git commit -m'
 alias k="kubectl"
 alias ka="kubectl apply -f"
 
-# Named Directory Hashes
-
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
