@@ -61,6 +61,6 @@ alias ka="kubectl apply -f"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
-if [ -f "$HOME/.zfunc/ssh-manager.sh" ]; then
-    source "$HOME/.zfunc/ssh-manager.sh"
-fi
+source "$HOME/.zsh/functions/ssh-manager.sh"
+
+eval $(keychain --eval --quiet id_ed25519)
