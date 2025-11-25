@@ -25,7 +25,8 @@ unsetopt EXTENDED_HISTORY
 export PATH=/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
 export EDITOR=nvim
 export VISUAL="$EDITOR"
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 bindkey '^w' autosuggest-execute
 bindkey '^e' autosuggest-accept
@@ -51,7 +52,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 
 # Aliases
-alias vim='/run/current-system/sw/bin/nvim'
+#alias vim='/run/current-system/sw/bin/nvim'
 alias gc='git commit -m'
 
 alias k="kubectl"

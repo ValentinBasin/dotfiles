@@ -1,0 +1,14 @@
+profile {
+    output eDP-1 scale 1.25
+}
+
+profile {
+    output eDP-1 enable position 1920,0 scale 2
+    output HDMI-A-1 position 0,0
+}
+
+profile {
+    output eDP-1 disable
+    output DP-2 position 0,0
+    output DP-3 position 1920,0
+}

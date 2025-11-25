@@ -1,0 +1,120 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 0,
+  "modules-left": [
+      "clock",
+      "idle_inhibitor",
+      "hyprland/workspaces"
+  ],
+  "modules-center": [
+      "hyprland/window"
+  ],
+  "modules-right": [
+      "tray",
+      "network",
+      "custom/vpn",
+      "pulseaudio",
+      "battery",
+      "hyprland/language",
+      "custom/power"
+  ],
+
+  "hyprland/window": {
+      "format": "{}",
+      "max-length": 40,      
+      "separate-outputs": true
+  },
+  "hyprland/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "on-click": "activate",
+      "format": "{icon}",
+      "persistent_workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": [],
+          "5": [],
+          "6": []
+      }
+  },
+  "tray": {
+      "icon-size": 13,
+      "spacing": 10
+  },
+  "clock": {
+      "format": " {:%H:%M   %e %b}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+      "states": {
+          "good": 95,
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", "", "", ""]
+  },
+  "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "tooltip": false,
+      "format-muted": " Muted",
+      "on-click": "pavucontrol",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", "", ""]
+      }
+  },
+  "network": {
+      "format-wifi": "  {essid}",
+      "format-ethernet": "󰈀  {ipaddr}",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "⚠ Disconnected",
+      "on-click": "nm-connection-editor"
+  },
+  "bluetooth": {
+      "format": " {status}",
+      "format-disabled": "",
+      "format-connected": " {num_connections}",
+      "on-click": "blueman-manager"
+  },
+  "custom/power": {
+      "format": "⏻",
+      "tooltip": false,
+      "on-click": "wlogout"
+  },
+  "hyprland/language": {
+      "format": "{}",
+      "format-en": "EN",
+      "format-ru": "RU",
+      "format-he": "HE"
+  },
+  "custom/vpn": {
+      "format": "{}",
+      "exec": "~/.config/waybar/scripts/vpn-status.sh",
+      "return-type": "json",
+      "interval": 2,
+      "on-click": "~/.config/waybar/scripts/vpn-menu.sh",
+      "on-click-right": "nm-connection-editor"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    },
+    "tooltip": true
+  }
+}
