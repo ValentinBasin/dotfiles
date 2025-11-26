@@ -1,3 +1,11 @@
+# # Fix for Yazi Image previev
+# if [[ -n "$YAZI_LEVEL" ]]; then
+#     export PATH=$HOME/.local/bin:$PATH
+#     return
+# fi
+#
+# [[ $- != *i* ]] && return
+
 typeset -U path cdpath fpath manpath
 
 # Oh-My-Zsh/Prezto calls compinit during initialization,
@@ -49,6 +57,8 @@ fi
 #Starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+alias ll='ls -al --color=auto'
 
 
 # Aliases

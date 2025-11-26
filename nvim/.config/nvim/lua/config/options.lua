@@ -9,3 +9,10 @@ local function set_filetype(pattern, filetype)
 end
 
 set_filetype({ "docker-compose.yml" }, "yaml.docker-compose")
+
+vim.filetype.add({
+  pattern = {
+    [".*/%.ssh/conf.d/.*"] = "sshconfig",
+    [".*/%.ssh/config"] = "sshconfig",
+  },
+})
