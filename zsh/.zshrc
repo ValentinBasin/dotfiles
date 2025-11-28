@@ -1,11 +1,3 @@
-# # Fix for Yazi Image previev
-# if [[ -n "$YAZI_LEVEL" ]]; then
-#     export PATH=$HOME/.local/bin:$PATH
-#     return
-# fi
-#
-# [[ $- != *i* ]] && return
-
 typeset -U path cdpath fpath manpath
 
 # Oh-My-Zsh/Prezto calls compinit during initialization,
@@ -30,7 +22,7 @@ unsetopt HIST_EXPIRE_DUPS_FIRST
 setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 
-export PATH=/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
+# export PATH=/run/current-system/sw/bin:$HOME/.nix-profile/bin:$PATH
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -43,16 +35,13 @@ bindkey '^L' vi-forward-word
 bindkey '^k' up-line-or-search
 bindkey '^j' down-line-or-search
 
-#NIX
-HELPDIR="/nix/store/3ibdmy0gnaaqv7jq9572dk6af8y4f9xh-zsh-5.9/share/zsh/$ZSH_VERSION/help"
-
-for profile in ${(z)NIX_PROFILES}; do
-  fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
-done
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
+# for profile in ${(z)NIX_PROFILES}; do
+#   fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
+# done
+#
+# if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+#   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+# fi
 
 #Starship
 eval "$(starship init zsh)"
