@@ -7,8 +7,9 @@
   "gtk-layer-shell": true,
   "height": 0,
   "modules-left": [
-      "clock",
       "idle_inhibitor",
+      "hyprland/language",
+      "clock",
       "hyprland/workspaces"
   ],
   "modules-center": [
@@ -20,7 +21,6 @@
       "custom/vpn",
       "pulseaudio",
       "battery",
-      "hyprland/language",
       "custom/power"
   ],
 
@@ -112,8 +112,8 @@
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-        "activated": "",
-        "deactivated": ""
+        "activated": " ",
+        "deactivated": " "
     },
     "tooltip": true
   }

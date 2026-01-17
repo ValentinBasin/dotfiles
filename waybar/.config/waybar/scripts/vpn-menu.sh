@@ -13,7 +13,7 @@ while IFS= read -r vpn_name; do
   fi
 done <<<"$ALL_VPNS"
 
-CHOICE=$(echo -e "$MENU_ITEMS" | sed '/^$/d' | wofi --dmenu --prompt "VPN Manager" --width 400 --height 300)
+CHOICE=$(echo -e "$MENU_ITEMS" | sed '/^$/d' | rofi -dmenu -p "VPN Manager" -i)
 
 if [ -z "$CHOICE" ]; then
   exit 0

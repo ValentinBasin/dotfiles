@@ -61,5 +61,6 @@ fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
 source "$HOME/.zsh/functions/ssh-manager.sh"
+source <(fzf --zsh)
 
 eval $(keychain --eval --quiet id_ed25519)
