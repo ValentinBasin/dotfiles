@@ -1,33 +1,70 @@
+### Profiles ###
+
 profile laptop {
-    output eDP-1 enable mode 1920x1080@60Hz position 0,0 scale 1.25
+    output $LAPTOP enable position 0,0 scale 1.25
 }
 
 profile home_1 {
-    output eDP-1 enable position 1920,0 scale 1.5
-    output $HOME_1 enable
+    output $HOME_1 enable position 0,0
+    output $LAPTOP enable position 1920,0 scale 1.5
 }
 
-profile {
-    output eDP-1 enable mode 1920x1080@60Hz position 3840,0
-    output DP-5 serial 4TKY973 mode 1920x1080@60Hz position 0,0 scale 1
-    output DP-4 serial 7DKY973 mode 1920x1080@60Hz position 1920,0 scale 1
+profile speedata_1 {
+    output $SPEEDATA_1 enable position 0,0
+    output $SPEEDATA_2 enable position 1920,0
+    output $LAPTOP enable position 3840,0 scale 1.25
 }
 
-profile {
-    output eDP-1 enable mode 1920x1080@60Hz position 3840,0
-    output DP-4 serial JWJY973 mode 1920x1080@60Hz position 0,0 scale 1
-    output DP-5 serial 6CLY973 mode 1920x1080@60Hz position 1920,0 scale 1
+profile speedata_3 {
+    output $SPEEDATA_5 enable position 0,0
+    output $SPEEDATA_6 enable position 1920,0
+    output $LAPTOP enable position 3840,0 scale 1.25
 }
 
-profile {
-    output eDP-1 enable mode 1920x1080@60Hz position 3840,0
-    output DP-2 mode 1920x1080@60Hz position 0,0
-    output DP-3 mode 1920x1080@60Hz position 1920,0
+profile sequans_1 {
+    output $SEQUANS_1 enable position 0,0
+    output $SEQUANS_2 enable position 1920,0
+    output $LAPTOP enable position 3840,0 scale 1.25
+}
+
+### Outputs ###
+
+output "BOE 0x07BB Unknown" {
+    mode 1920x1080@60.00Hz
+    alias $LAPTOP
 }
 
 output "AOC 27G15N AH15428Z01155" {
     mode 1920x1080@60.00Hz
-    position 0,0
-    scale 1
     alias $HOME_1
 }
+
+output "Dell Inc. DELL S2421HGF JWJY973" {
+    mode 1920x1080@60.00Hz
+    alias $SPEEDATA_1
+}
+
+output "Dell Inc. DELL S2421HGF 6CLY973" {
+    mode 1920x1080@60.00Hz
+    alias $SPEEDATA_2
+}
+
+output "Dell Inc. DELL S2421HGF 35MY973" {
+    mode 1920x1080@60.00Hz
+    alias $SPEEDATA_5
+}
+
+output "Dell Inc. DELL S2421HGF JGKY973" {
+    mode 1920x1080@60.00Hz
+    alias $SPEEDATA_6
+}
+
+output "Dell Inc. DELL U2415 7MT0167P0LPS" {
+    mode 1920x1080@60.00Hz
+    alias $SEQUANS_1
+  }
+
+output "Dell Inc. DELL U2415 XKV0P05N0IGU" {
+    mode 1920x1080@60.00Hz
+    alias $SEQUANS_2
+  }

@@ -69,8 +69,8 @@
       "on-click": "pavucontrol",
       "format-icons": {
           "headphone": "",
-          "hands-free": "",
-          "headset": "",
+          "hands-free": "",
+          "headset": "",
           "phone": "",
           "portable": "",
           "car": "",
