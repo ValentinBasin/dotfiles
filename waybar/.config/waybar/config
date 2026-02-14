@@ -6,62 +6,97 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 0,
+  
   "modules-left": [
-      "idle_inhibitor",
-      "hyprland/language",
-      "clock",
-      "hyprland/workspaces"
-  ],
-  "modules-center": [
+      "hyprland/workspaces",
       "hyprland/window"
   ],
+  
+  "modules-center": [
+      "clock"
+  ],
+  
   "modules-right": [
       "tray",
       "network",
       "custom/vpn",
+      "temperature",
       "pulseaudio",
+      "hyprland/language",
       "battery",
+      "idle_inhibitor",
       "custom/power"
   ],
 
-  "hyprland/window": {
-      "format": "{}",
-      "max-length": 40,      
-      "separate-outputs": true
-  },
   "hyprland/workspaces": {
       "disable-scroll": true,
-      "all-outputs": false,
+      "all-outputs": true,
       "on-click": "activate",
       "format": "{icon}",
+      "format-icons": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4",
+          "5": "5",
+          "6": "6",
+          "7": "7",
+          "8": "8",
+          "9": "9",
+          "10": "10",
+          "urgent": "",
+          "focused": "",
+          "default": ""
+      },
       "persistent_workspaces": {
-          "1": [],
-          "2": [],
-          "3": [],
-          "4": [],
-          "5": [],
-          "6": []
+          "1": [], "2": [], "3": [], "4": [], "5": []
       }
   },
-  "tray": {
-      "icon-size": 13,
-      "spacing": 10
+  
+  "hyprland/window": {
+      "format": "{}",
+      "max-length": 40,
+      "separate-outputs": true
   },
+
   "clock": {
       "format": " {:%H:%M   %e %b}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
-  "battery": {
-      "states": {
-          "good": 95,
-          "warning": 30,
-          "critical": 15
-      },
-      "format": "{icon} {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-icons": ["", "", "", "", ""]
+
+  "tray": {
+      "icon-size": 13,
+      "spacing": 10
   },
+
+  "network": {
+      "format-wifi": " ",
+      "format-ethernet": "󰈀",
+      "format-linked": "",
+      "format-disconnected": "⚠",
+      "tooltip-format": "{ifname} via {gwaddr}",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) {ipaddr}/{cidr}",
+      "tooltip-format-ethernet": "{ipaddr}/{cidr}",
+      "on-click": "nm-connection-editor"
+  },
+
+  "custom/vpn": {
+      "format": "{}",
+      "exec": "~/.config/waybar/scripts/vpn-status.sh",
+      "return-type": "json",
+      "interval": 2,
+      "on-click": "~/.config/waybar/scripts/vpn-menu.sh",
+      "on-click-right": "nm-connection-editor"
+  },
+
+  "temperature": {
+    "thermal-zone": 8,
+    "warning-threshold": 70,
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+
   "pulseaudio": {
       "format": "{icon} {volume}%",
       "tooltip": false,
@@ -77,38 +112,27 @@
           "default": ["", "", ""]
       }
   },
-  "network": {
-      "format-wifi": "  {essid}",
-      "format-ethernet": "󰈀  {ipaddr}",
-      "format-linked": "{ifname} (No IP) ",
-      "format-disconnected": "⚠ Disconnected",
-      "on-click": "nm-connection-editor"
-  },
-  "bluetooth": {
-      "format": " {status}",
-      "format-disabled": "",
-      "format-connected": " {num_connections}",
-      "on-click": "blueman-manager"
-  },
-  "custom/power": {
-      "format": "⏻",
-      "tooltip": false,
-      "on-click": "wlogout"
-  },
+
   "hyprland/language": {
       "format": "{}",
       "format-en": "EN",
       "format-ru": "RU",
-      "format-he": "HE"
+      "format-he": "HE",
+      "on-click": "hyprctl switchxkblayout all next"
   },
-  "custom/vpn": {
-      "format": "{}",
-      "exec": "~/.config/waybar/scripts/vpn-status.sh",
-      "return-type": "json",
-      "interval": 2,
-      "on-click": "~/.config/waybar/scripts/vpn-menu.sh",
-      "on-click-right": "nm-connection-editor"
+
+  "battery": {
+      "states": {
+          "good": 95,
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "{icon} {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", "", "", ""]
   },
+
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -116,5 +140,11 @@
         "deactivated": " "
     },
     "tooltip": true
+  },
+
+  "custom/power": {
+      "format": "⏻",
+      "tooltip": false,
+      "on-click": "wlogout"
   }
 }

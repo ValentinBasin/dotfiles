@@ -49,6 +49,7 @@ tooltip {
 #bluetooth,
 #language,
 #idle_inhibitor,
+#temperature,
 #tray {
   background: #1e1e2e;
   padding: 0px 15px;
@@ -63,8 +64,6 @@ tooltip {
   margin-left: 20px;
   margin-right: 20px;
 }
-
-/* Цветовые акценты для разных модулей */
 
 #clock {
   color: #fab387;
@@ -115,6 +114,26 @@ tooltip {
 #idle_inhibitor.activated {
   background-color: #f9e2af;
   color: #1e1e2e;
+}
+
+#temperature {
+  color: #89b4fa;
+}
+
+#temperature.warning {
+  color: #f9e2af;
+}
+
+#temperature.critical {
+  background-color: #ff3333;
+  color: #ffffff;
+}
+
+#language {
+  min-width: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
 }
 
 /* #custom-power { */
