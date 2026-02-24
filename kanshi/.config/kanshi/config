@@ -33,10 +33,22 @@ profile speedata_7 {
     output $LAPTOP enable position 3840,0 scale 1.25
 }
 
+profile speedata_devops_1 {
+    output $SPEEDATA_DEVOPS_1 enable position 0,0
+    output $SPEEDATA_DEVOPS_2 enable position 2560,0
+    output $LAPTOP enable position 4480,0 scale 1.25
+}
+
 profile sequans_1 {
     output $SEQUANS_1 enable position 0,0
     output $SEQUANS_2 enable position 1920,0
     output $LAPTOP enable position 3840,0 scale 1.25
+}
+
+profile sequans_2 {
+    output $SEQUANS_3 enable position 0,0
+    output $SEQUANS_4 enable position 2560,0
+    output $LAPTOP enable position 4480,0 scale 1.25
 }
 
 ### Outputs ###
@@ -81,7 +93,7 @@ output "Dell Inc. DELL S2421HGF JGKY973" {
     alias $SPEEDATA_6
 }
 
-output "Dell Inc. DELL P2419H 4X7CR63" {
+output "Dell Inc. DELL P2419H 4X7CR64" {
     mode 1920x1080@60.00Hz
     alias $SPEEDATA_13
 }
@@ -89,6 +101,16 @@ output "Dell Inc. DELL P2419H 4X7CR63" {
 output "Dell Inc. DELL S2421HGF 6PKY973" {
     mode 1920x1080@60.00Hz
     alias $SPEEDATA_14
+}
+
+output "Dell Inc. DELL S2722DC J6KQGD3" {
+    mode 2560x1440@59.95Hz
+    alias $SPEEDATA_DEVOPS_1
+}
+
+output "Dell Inc. DELL S2721QS 57GDM43" {
+    mode 1920x1080@60.00Hz
+    alias $SPEEDATA_DEVOPS_2
 }
 
 output "Dell Inc. DELL U2415 7MT0167P0LPS" {
@@ -99,4 +121,13 @@ output "Dell Inc. DELL U2415 7MT0167P0LPS" {
 output "Dell Inc. DELL U2415 XKV0P05N0IGU" {
     mode 1920x1080@60.00Hz
     alias $SEQUANS_2
+  }
+output "Dell Inc. DELL U2520D BRYV823" {
+    mode 2560x1440@59.95Hz
+    alias $SEQUANS_3
+  }
+
+output "Dell Inc. DELL U2520D CS8K923" {
+    mode 1920x1080@60.00Hz
+    alias $SEQUANS_4
   }

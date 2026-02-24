@@ -20,7 +20,7 @@ if [ -z "$CHOICE" ]; then
 fi
 
 VPN_NAME=$(echo "$CHOICE" | cut -d: -f2 | xargs)
-ACTION=$(echo "$CHOICE" | awk '{print $1}') # "Connect:" или "✅"
+ACTION=$(echo "$CHOICE" | awk '{print $1}') # "Connect:" or "✅"
 
 if [ "$ACTION" == "✅" ]; then
   notify-send "VPN" "Disconnecting $VPN_NAME..."
@@ -34,7 +34,3 @@ else
     notify-send -u critical "VPN" "Connection failed"
   fi
 fi
-# else
-#   notify-send "VPN" "Connecting to $VPN_NAME..."
-#   kitty --title "VPN Auth" sh -c "nmcli connection up '$VPN_NAME' --ask; sleep 1"
-# fi

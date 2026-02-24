@@ -3,7 +3,7 @@
 ACTIVE_VPNS=$(nmcli -t -f TYPE,NAME connection show --active | grep '^vpn:' | cut -d: -f2)
 
 if [ -n "$ACTIVE_VPNS" ]; then
-  FORMATTED_LIST=$(echo "$ACTIVE_VPNS" | sed 's/^/🔒 /' | paste -sd ' ' -)
+  FORMATTED_LIST=$(echo "$ACTIVE_VPNS" | sed 's/^/ /' | paste -sd ' ' -)
 
   TOOLTIP="Connected to:\n$ACTIVE_VPNS"
 

@@ -1,143 +1,214 @@
+/* =============================================================================
+   1. VARIABLES (Catppuccin Mocha Palette)
+   ============================================================================= */
+@define-color base   #1e1e2e;
+@define-color mantle #181825;
+@define-color crust  #11111b;
+
+@define-color text     #cdd6f4;
+@define-color subtext  #a6adc8;
+
+@define-color blue      #89b4fa;
+@define-color lavender  #b4befe;
+@define-color sapphire  #74c7ec;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color peach     #fab387;
+@define-color maroon    #eba0ac;
+@define-color red       #f38ba8;
+@define-color mauve     #cba6f7;
+@define-color pink      #f5c2e7;
+@define-color flamingo  #f2cdcd;
+@define-color rosewater #f5e0dc;
+
+/* =============================================================================
+   2. GLOBAL RESET & WINDOW
+   ============================================================================= */
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "JetBrainsMono Nerd Font", monospace;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
   background: rgba(21, 18, 27, 0);
-  color: #cdd6f4;
+  color: @text;
 }
 
 tooltip {
-  background: #1e1e2e;
+  background: @base;
+  border: 1px solid @mantle;
   border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #11111b;
+}
+
+tooltip label {
+  color: @text;
+}
+
+/* =============================================================================
+   3. WORKSPACES (LEFT)
+   ============================================================================= */
+#workspaces {
+  background: @base;
+  margin: 5px 5px;
+  padding: 5px 5px;
+  border-radius: 15px;
+  border: 1px solid @mantle;
 }
 
 #workspaces button {
-  padding: 5px;
-  color: #313244;
-  margin-right: 5px;
-}
-
-#workspaces button.active {
-  color: #a6adc8;
-  background: #11111b;
-  border-radius: 10px;
+  padding: 0 5px;
+  background-color: transparent;
+  color: @subtext;
+  margin-right: 2px;
 }
 
 #workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
+  background: @mantle;
+  color: @text;
   border-radius: 10px;
 }
 
-#custom-power,
-#custom-vpn,
-#workspaces,
-#window,
+#workspaces button.active {
+  background: @mantle;
+  color: @blue;
+  border-radius: 10px;
+  min-width: 30px;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+/* =============================================================================
+   4. MODULES COMMON STYLES (The "Pills")
+   ============================================================================= */
 #clock,
 #battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#language,
-#idle_inhibitor,
+#cpu,
+#memory,
+#disk,
 #temperature,
-#tray {
-  background: #1e1e2e;
-  padding: 0px 15px;
-  margin: 5px 5px;
-  margin-top: 10px;
-  border: 1px solid #181825;
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-power,
+#custom-vpn,
+#language {
+  background-color: @base;
+  padding: 0 12px;
+  margin: 5px 3px;
   border-radius: 15px;
+  border: 1px solid @mantle;
+  color: @text;
 }
 
 #window {
   border-radius: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
+  background-color: @base;
+  padding: 0 15px;
+  margin: 5px 20px;
 }
 
+/* =============================================================================
+   5. INDIVIDUAL MODULE STYLES (Color Logic)
+   ============================================================================= */
+
+/* --- Center --- */
 #clock {
-  color: #fab387;
-  background: #1e1e2e;
+  color: @peach;
+  margin-top: 5px;
 }
 
+/* --- Hardware & Status --- */
 #battery {
-  color: #a6e3a1;
+  color: @green;
 }
-
 #battery.charging {
-  color: #ffffff;
-  background-color: #26a65b;
+  color: @base;
+  background-color: @green;
 }
-
 #battery.warning:not(.charging) {
-  background-color: #ff3333;
-  color: #ffffff;
-}
-
-#network {
-  color: #f9e2af;
-}
-
-#bluetooth {
-  color: #89b4fa;
-}
-
-#pulseaudio {
-  color: #89b4fa;
-}
-
-#custom-vpn,
-#custom-power {
-  color: #f38ba8;
-  padding-right: 20px;
-  margin-right: 15px;
-}
-
-#idle_inhibitor {
-  background-color: #1e1e2e;
-  /* border-radius: 15px; */
-  /* padding: 0 10px; */
-  /* margin: 5px; */
-  color: #a6adc8;
-}
-
-#idle_inhibitor.activated {
-  background-color: #f9e2af;
-  color: #1e1e2e;
+  background-color: @red;
+  color: @base;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #temperature {
-  color: #89b4fa;
+  color: @sapphire;
 }
-
-#temperature.warning {
-  color: #f9e2af;
-}
-
 #temperature.critical {
-  background-color: #ff3333;
-  color: #ffffff;
+  background-color: @red;
+  color: @base;
 }
 
+/* --- Connectivity --- */
+#network {
+  color: @lavender;
+}
+#network.disconnected {
+  color: @red;
+}
+
+#custom-vpn {
+  color: @mauve;
+}
+
+/* --- Multimedia --- */
+#pulseaudio {
+  color: @blue;
+}
+#pulseaudio.muted {
+  color: @subtext;
+  background-color: @mantle;
+}
+
+/* --- System & Controls --- */
 #language {
+  color: @rosewater;
   min-width: 24px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 5px;
+  padding: 0 8px;
 }
 
-/* #custom-power { */
-/*   color: #f38ba8; */
-/*   padding-right: 20px; */
-/*   margin-right: 15px; */
-/* } */
+#idle_inhibitor {
+  color: @teal;
+}
+#idle_inhibitor.activated {
+  background-color: @teal;
+  color: @base;
+}
+
+#custom-power {
+  color: @red;
+  padding-right: 15px;
+  margin-right: 8px;
+}
+
+#tray {
+  padding: 0 10px;
+  margin-left: 8px;
+}
+
+/* =============================================================================
+   6. ANIMATIONS
+   ============================================================================= */
+@keyframes blink {
+  to {
+    background-color: @text;
+    color: @red;
+  }
+}
