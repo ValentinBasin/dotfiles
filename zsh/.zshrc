@@ -49,6 +49,10 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 alias ll='ls -al --color=auto'
 
+# Pyenv init
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Aliases
 #alias vim='/run/current-system/sw/bin/nvim'
@@ -60,7 +64,11 @@ alias ka="kubectl apply -f"
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
-source "$HOME/.zsh/functions/ssh-manager.sh"
+for func_file in ~/.zsh/functions/*(N-.); do
+    source "$func_file"
+done
+
+# source "$HOME/.zsh/functions/ssh-manager.sh"
 source <(fzf --zsh)
 
 eval $(keychain --eval --quiet id_ed25519)
