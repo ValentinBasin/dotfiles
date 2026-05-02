@@ -47,7 +47,9 @@ bindkey '^j' down-line-or-search
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
+alias ls="lsd"
 alias ll='ls -al --color=auto'
+alias cat="bat"
 
 # Pyenv init
 export PYENV_ROOT="$HOME/.pyenv"

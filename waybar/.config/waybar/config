@@ -90,7 +90,7 @@
   },
 
   "temperature": {
-    "thermal-zone": 8,
+    "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
     "warning-threshold": 70,
     "critical-threshold": 80,
     "format": "{temperatureC}°C {icon}",
