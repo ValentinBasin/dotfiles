@@ -5,7 +5,7 @@ image = [{ run = 'imv "$@"', orphan = true, desc = "imv" }]
 
 [open]
 rules = [
-  { name = "*/", use = [
+  { mime = "inode/directory", use = [
     "edit",
     "pdf",
     "reveal",

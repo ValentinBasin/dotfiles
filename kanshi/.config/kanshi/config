@@ -53,8 +53,8 @@ profile sequans_2 {
 
 ### Outputs ###
 
-output "BOE 0x07BB Unknown" {
-    mode 1920x1080@60.00Hz
+output "BOE 0x0A2A Unknown" {
+    mode 1920x1200@60.00Hz
     alias $LAPTOP
 }
 
