@@ -46,9 +46,9 @@ profile sequans_1 {
 }
 
 profile sequans_2 {
-    output $SEQUANS_3 enable position 0,0
-    output $SEQUANS_4 enable position 2560,0
-    output $LAPTOP enable position 4480,0 scale 1.25
+    output $SEQUANS_3 enable position 0,0 scale 1
+    output $SEQUANS_4 enable position 2560,0 scale 1
+    output $LAPTOP enable position 5120,0 scale 1.25
 }
 
 ### Outputs ###
@@ -128,6 +128,6 @@ output "Dell Inc. DELL U2520D BRYV823" {
   }
 
 output "Dell Inc. DELL U2520D CS8K923" {
-    mode 1920x1080@60.00Hz
+    mode 2560x1440@59.95Hz
     alias $SEQUANS_4
   }
