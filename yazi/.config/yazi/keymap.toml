@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = [ "g", "<Space>" ]
+run  = "plugin sftp-cd"
+desc = "Jump interactively (pre-fills sftp://host// in remote tabs)"
