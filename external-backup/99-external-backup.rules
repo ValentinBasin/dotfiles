@@ -1,0 +1,4 @@
+# Trigger external-backup.service when the external "mig" USB drive is
+# connected. Matched by filesystem UUID so the rule keeps working regardless
+# of which /dev/sdX node or USB port the drive ends up on.
+ACTION=="add", SUBSYSTEM=="block", ENV{ID_FS_UUID}=="b054959a-36da-46fc-b1f8-c3cb09d1cd1a", TAG+="systemd", ENV{SYSTEMD_WANTS}="external-backup.service"

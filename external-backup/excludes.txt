@@ -1,0 +1,68 @@
+# Backup source is the whole home directory (see BACKUP_SOURCE in
+# external-backup.sh) rather than an explicit list of folders, so a newly
+# created directory is covered automatically. This file is the deny-list
+# that keeps known junk/reproducible/redundant data out of the repository.
+# (--exclude-caches in the script adds a further, pattern-independent
+# safety net for anything following the CACHEDIR.TAG convention.)
+
+# Downloads directory
+**/Downloads
+
+# Build artifacts and dependency caches inside project directories.
+# These are easily regenerated, so skipping them saves a lot of space/time.
+**/node_modules
+**/.venv
+**/venv
+**/__pycache__
+**/target
+**/build
+**/dist
+**/.gradle
+**/.next
+**/.terraform
+**/*.pyc
+
+# Browser/Electron-app cache folders that tend to live under ~/.config.
+**/Cache
+**/CachedData
+**/Code Cache
+**/GPUCache
+**/Service Worker
+**/blob_storage
+
+# Generic cache directories, wherever they show up.
+**/.cache
+
+# Cloud-synced folders: already redundantly stored/versioned by the sync
+# service itself, not worth doubling up in the local backup.
+**/Dropbox
+**/.dropbox
+**/.dropbox-dist
+**/OneDrive
+
+# Games and game-platform libraries: large and trivially reinstallable.
+# **/Games
+**/.steam
+**/.local/share/Steam
+steam.desktop
+
+# Tool/runtime caches and version managers: reinstallable, not source data.
+**/.local/share/mise
+**/.npm
+**/.cargo
+**/.rustup
+
+# Desktop/filesystem trash and bookkeeping, not real data.
+**/.local/share/Trash
+**/.local/share/gvfs-metadata
+**/.recently-used.xbel
+
+# Misc runtime junk from various desktop toolkits, not real data.
+**/.java
+**/.eclipse
+**/.mono
+**/.swt
+**/.qt
+**/.fltk
+**/.pki
+**/.pulse-cookie

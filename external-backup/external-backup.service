@@ -1,0 +1,15 @@
+[Unit]
+Description=Backup home directory to the external "mig" drive via restic
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=__USER__
+Group=__USER__
+# Needed so notify-send/zenity can reach the user's desktop session bus.
+# install.sh fills in __USER__/__UID__ for the machine it runs on.
+Environment=XDG_RUNTIME_DIR=/run/user/__UID__
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/__UID__/bus
+ExecStart=/usr/local/bin/external-backup.sh
+StandardOutput=journal
+StandardError=journal
